@@ -24,12 +24,18 @@
     <ClCompile Include="PointCard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ActionCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="PointCard.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionCard.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,6 +3,7 @@
 #include "Card.hpp"
 #include "PointCard.hpp"
 #include <typeinfo>
+#include "ActionCard.hpp"
 
 using namespace std;
 
@@ -33,6 +34,14 @@ int main() {
 	
 	PointCard card2;
 	card1.Print();
+	cout << "ACTION CARD TESTING BELOW" << endl;
+	cout << "-------------------------------" << endl;
 	
+	ActionCard action1;
+	string testAction = "SWAP HAND WITH OPPONENT";
+	action1.setInstruction(testAction);
+	action1.Print();
+	cout << action1.isPlayable() << endl;
+
 	return 0;
 }

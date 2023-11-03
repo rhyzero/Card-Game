@@ -12,6 +12,8 @@ Card::Card() {
 
 Card::~Card() {
 	std::cout << "Destructor Executed" << std::endl;
+	delete this->getImageData();
+	
 }
 
 Card& Card::operator=(const Card& rhs) {
@@ -63,4 +65,12 @@ void Card::setDrawn(const bool& drawn) {
 
 bool Card::getDrawn() const {
 	return this->drawn_;
+}
+
+void Card::setImageData(int *data) {
+	
+}
+
+const int* Card::getImageData() const {
+	return this->bitmap_;
 }

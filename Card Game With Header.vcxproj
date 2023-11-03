@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActionCard.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="PointCard.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionCard.hpp" />
     <ClInclude Include="Card.hpp" />
     <ClInclude Include="PointCard.hpp" />
   </ItemGroup>
