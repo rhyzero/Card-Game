@@ -32,7 +32,7 @@ int main() {
 	cout << card1.getInstruction() << endl;
 	
 	PointCard card2;
-	card2.Print();
+	card1.Print();
 	
 	return 0;
 }
