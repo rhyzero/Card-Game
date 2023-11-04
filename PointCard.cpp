@@ -18,18 +18,30 @@ PointCard::PointCard() {
 }
 
 void PointCard::Print() const {
-	cout << "Type: [" << this->getType() << "]" << endl;
-	cout << "Points: [" << this->getInstruction() << "]" << endl;
-	cout << "Card: " << "\n" << "[ImageData]" << endl;
+	const std::string deez = this->getInstruction();
+	cout << "Type: " << this->getType()  << endl;
+	cout << "Points: " << this->getInstruction() << endl;
+	const int* p = this->getImageData();
+	if (!this->getImageData()) {
+		cout << "Card: " << endl;
+		cout << "No image data" << endl;
+	}
+	else {
+		cout << "Card: " << endl;
+		for (int i = 0; i < 3; i++) {
+			cout << p[i] << " ";
+		}
+		cout << endl;
+	}
 }
 
 bool PointCard::isPlayable() {
 	if (this->getDrawn() == true && isdigit((this->getInstruction()).at(0))) {
-		cout << "This card is playable" << endl;
+		
 		return true;
 	}
 	else {
-		cout << "This card is NOT playable" << endl;
+		
 		return false;
 	}
 }

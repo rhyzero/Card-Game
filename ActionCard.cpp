@@ -21,19 +21,19 @@ ActionCard::ActionCard() {
 
 bool ActionCard::isPlayable() {
 	if ((this->getInstruction()).substr(0, 4) == "DRAW" && check_positive(this->getInstruction())) {
-		cout << "This card is playable" << endl;
+		
 		return true;
 	}
 	else if ((this->getInstruction()).substr(0, 4) == "PLAY" && check_positive(this->getInstruction())) {
-		cout << "This card is playable" << endl;
+		
 		return true;
 	}
 	else if ((this->getInstruction()).substr(0, 7) == "REVERSE") {
-		cout << "This card is playable" << endl;
+		
 		return true;
 	}
 	else if ((this->getInstruction()).substr(0, 4) == "SWAP") {
-		cout << "This card is playable" << endl;
+		
 		return true;
 	}
 	else {
@@ -42,7 +42,18 @@ bool ActionCard::isPlayable() {
 }
 
 void ActionCard::Print() const {
-	cout << "Type: [" << this->getType() << "]" << endl;
-	cout << "Instruction: [" << this->getInstruction() << "]" << endl;
-	cout << "Card: " << "\n" << "[ImageData]" << endl;
+	cout << "Type: " << this->getType()  << endl;
+	cout << "Instruction: " << this->getInstruction() << endl;
+	const int* p = this->getImageData();
+	if(!this->getImageData()) {
+		cout << "Card: " << endl;
+		cout << "No image data" << endl;
+	}
+	else {
+		cout << "Card: " << endl;
+		for (int i = 0; i < 3; i++) {
+			cout << p[i] << " ";
+		}
+		cout << endl;
+	}
 }

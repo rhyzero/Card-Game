@@ -1,4 +1,5 @@
 #include "Card.hpp"
+#include <array>
 
 Card::Card(const Card& rhs) {
 	this->instruction_ = rhs.instruction_;
@@ -11,9 +12,7 @@ Card::Card() {
 }
 
 Card::~Card() {
-	std::cout << "Destructor Executed" << std::endl;
-	delete this->getImageData();
-	
+	bitmap_ = NULL;
 }
 
 Card& Card::operator=(const Card& rhs) {
@@ -30,17 +29,18 @@ Card::Card(Card&& rhs) {
 }
 
 Card& Card::operator=(Card&& rhs) {
-	std::swap(instruction_, rhs.instruction_);
-	std::swap(cardType_, rhs.cardType_);
+	this->setInstruction(rhs.getInstruction());
+	this->setImageData(rhs.bitmap_);
+	this->setDrawn(rhs.drawn_);
 	return *this;
 }
 
 std::string Card::getType() const {
 	if (this->cardType_ == POINT_CARD) {
-		return "Point Card";
+		return "POINT_CARD";
 	}
 	else if (this->cardType_ == ACTION_CARD) {
-		return "Action Card";
+		return "ACTION_CARD";
 	}
 	else {
 		return "No Type";
@@ -68,7 +68,7 @@ bool Card::getDrawn() const {
 }
 
 void Card::setImageData(int *data) {
-	
+	this->bitmap_ = std::move(data);
 }
 
 const int* Card::getImageData() const {

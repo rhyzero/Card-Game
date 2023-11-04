@@ -1,6 +1,6 @@
 /*
 CSCI335 Fall 2023
-Assignment 1 – Card Game
+Assignment 1 - Card Game
 Name Jacky Chen
 Date November 02, 2023
 Card.hpp defines the Card class and its member functions.
