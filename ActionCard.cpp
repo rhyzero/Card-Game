@@ -1,3 +1,11 @@
+/*
+CSCI335 Fall 2023
+Assignment 1 – Card Game
+Name Jacky Chen
+Date November 02, 2023
+ActionCard.cpp implements the ActionCard class.
+*/
+
 #include "ActionCard.hpp"
 #include <string>
 #include <ctype.h>
@@ -14,26 +22,28 @@ bool check_positive(const std::string& s) {
 	}
 }
 
+//Default ActionCard Constructor
+//Sets the cardType to ACTION_CARD
 ActionCard::ActionCard() {
-	this->setInstruction("");
-	this->setType(ACTION_CARD);
+	setType(ACTION_CARD);
 }
 
+//Returns whether the card instruction is valid or not
 bool ActionCard::isPlayable() {
-	if ((this->getInstruction()).substr(0, 4) == "DRAW" && check_positive(this->getInstruction())) {
-		
+	if ((getInstruction()).substr(0, 4) == "DRAW" && check_positive(getInstruction())) {
+
 		return true;
 	}
-	else if ((this->getInstruction()).substr(0, 4) == "PLAY" && check_positive(this->getInstruction())) {
-		
+	else if ((getInstruction()).substr(0, 4) == "PLAY" && check_positive(getInstruction())) {
+
 		return true;
 	}
-	else if ((this->getInstruction()).substr(0, 7) == "REVERSE") {
-		
+	else if ((getInstruction()).substr(0, 7) == "REVERSE") {
+
 		return true;
 	}
-	else if ((this->getInstruction()).substr(0, 4) == "SWAP") {
-		
+	else if ((getInstruction()).substr(0, 4) == "SWAP") {
+
 		return true;
 	}
 	else {
@@ -41,19 +51,17 @@ bool ActionCard::isPlayable() {
 	}
 }
 
+//Prints out the Card Information
+//Type, Instruction / Points, and the Image Data
 void ActionCard::Print() const {
-	cout << "Type: " << this->getType()  << endl;
-	cout << "Instruction: " << this->getInstruction() << endl;
-	const int* p = this->getImageData();
-	if(!this->getImageData()) {
+	cout << "Type: " << getType()  << endl;
+	cout << "Instruction: " << getInstruction() << endl;
+	if(getImageData() == 0) {
 		cout << "Card: " << endl;
 		cout << "No image data" << endl;
 	}
 	else {
 		cout << "Card: " << endl;
-		for (int i = 0; i < 3; i++) {
-			cout << p[i] << " ";
-		}
-		cout << endl;
+		cout << getImageData() << endl;
 	}
 }

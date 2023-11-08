@@ -1,9 +1,2 @@
 ﻿  Source.cpp
-H:\Repos\Card Game With Header\Card Game With Header\Deck.hpp(86,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-H:\Repos\Card Game With Header\Card Game With Header\Deck.hpp(85,1): message : while compiling class template member function 'int Deck<CardType>::getSize(void) const'
-H:\Repos\Card Game With Header\Card Game With Header\Deck.cpp(4,30): message : see reference to class template instantiation 'Deck<CardType>' being compiled
-H:\Repos\Card Game With Header\Card Game With Header\Deck.hpp(55): warning C4715: 'Deck<enum CardType>::Draw': not all control paths return a value
-H:\Repos\Card Game With Header\Card Game With Header\Deck.hpp(53): warning C4172: returning address of local variable or temporary: tempCard
-H:\Repos\Card Game With Header\Card Game With Header\Deck.hpp(55): warning C4715: 'Deck<ActionCard>::Draw': not all control paths return a value
-H:\Repos\Card Game With Header\Card Game With Header\Deck.hpp(53): warning C4172: returning address of local variable or temporary: tempCard
   Card Game With Header.vcxproj -> H:\Repos\Card Game With Header\x64\Debug\Card Game With Header.exe

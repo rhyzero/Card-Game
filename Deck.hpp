@@ -1,12 +1,12 @@
 /*
 CSCI335 Fall 2023
 Assignment 1 – Card Game
-Name
-Date
+Name Jacky Chen
+Date November 02, 2023
 Deck.hpp defines the Deck class.
 */
-#ifndef DECK_HPP
-#define DECK_HPP
+#ifndef _deck_hpp
+#define _deck_hpp
 
 #include <vector>
 #include <iostream>
@@ -22,49 +22,31 @@ public:
     /**
      * @post: Construct a new Deck object
      */
-    Deck() {
-        this->cards_ = {};
-    };
+    Deck();
 
     /**
      * @post: Destroy the Deck object
      */
-    ~Deck() {
-        
-    };
+    ~Deck();
 
     /**
      * @post: Add a Card to the Deck
      * @param: const reference to CardType card
      */
-    void AddCard(const CardType& card) {
-        this->cards_.push_back(std::move(card));
-    };
+    void AddCard(const CardType& card);
 
     /**
      * @post: Draw a card from the deck
      * @pre: the deck is not empty
      * @return the right hand value of type CardType
      */
-    CardType&& Draw() {
-            auto tempCard = std::move(this->cards_.back());
-        if (!this->IsEmpty()) {
-            this->cards_.pop_back();
-            return std::move(tempCard);
-        };
-    }
+    CardType&& Draw();
+    
 
     /**
      * @return if the deck is empty
      */
-    bool IsEmpty() const {
-        if (this->cards_.empty()) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    };
+    bool IsEmpty() const;
 
     /**
      * @post: Shuffle the deck
@@ -73,28 +55,21 @@ public:
      * https://en.cppreference.com/w/cpp/algorithm/random_shuffle
      * https://en.cppreference.com/w/cpp/numeric/random/mersenne_twister_engine
      */
-    void Shuffle() {
-        std::mt19937 mt;
-        mt.seed(2028358904);
-        std::shuffle(this->cards_.begin(), this->cards_.end(), mt);
-    };
+    void Shuffle();
 
     /**
      * @return the size of the deck
      */
-    int getSize() const {
-        return this->cards_.size();
-    };
+    int getSize() const;
 
     /**
      * @return the vector of cards in the deck
      */
-    std::vector<CardType> getDeck() const {
-        return cards_;
-    };
+    std::vector<CardType> getDeck() const;
 
 private:
     std::vector<CardType> cards_;
+    CardType drawnCard;
 };
 
 #include "Deck.cpp"

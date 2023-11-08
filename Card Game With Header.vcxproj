@@ -129,7 +129,8 @@
   <ItemGroup>
     <ClCompile Include="ActionCard.cpp" />
     <ClCompile Include="Card.cpp" />
-    <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="Hand.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="PointCard.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
@@ -137,6 +138,8 @@
     <ClInclude Include="ActionCard.hpp" />
     <ClInclude Include="Card.hpp" />
     <ClInclude Include="Deck.hpp" />
+    <ClInclude Include="Hand.hpp" />
+    <ClInclude Include="Player.hpp" />
     <ClInclude Include="PointCard.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

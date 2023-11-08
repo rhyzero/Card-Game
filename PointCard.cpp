@@ -1,47 +1,46 @@
+/*
+CSCI335 Fall 2023
+Assignment 1 – Card Game
+Name Jacky Chen
+Date November 02, 2023
+PointCard.cpp implements the PointCard class.
+*/
 #include "PointCard.hpp"
 #include <string>
-#include <ctype.h>
+#include <regex>
 
 using std::cout;
 using std::endl;
 
-bool num_check(const std::string& s)
-{
-	std::string::const_iterator it = s.begin();
-	while (it != s.end() && std::isdigit(*it)) ++it;
-	return !s.empty() && it == s.end();
-}
-
+//Default PointCard constructor
+//Sets the cardType to POINT_CARD
 PointCard::PointCard() {
-	this->setInstruction("");
 	this->setType(POINT_CARD);
 }
 
+//Prints out the Card Information
+//Type, Instruction / Points, and the Image Data
 void PointCard::Print() const {
-	const std::string deez = this->getInstruction();
 	cout << "Type: " << this->getType()  << endl;
 	cout << "Points: " << this->getInstruction() << endl;
-	const int* p = this->getImageData();
-	if (!this->getImageData()) {
+	if (this->getImageData() == 0) {
 		cout << "Card: " << endl;
 		cout << "No image data" << endl;
 	}
 	else {
 		cout << "Card: " << endl;
-		for (int i = 0; i < 3; i++) {
-			cout << p[i] << " ";
-		}
-		cout << endl;
+		cout << this->getImageData() << endl;
 	}
 }
 
+//Checks if the card is drawn and the instruction is a number 
 bool PointCard::isPlayable() {
-	if (this->getDrawn() == true && isdigit((this->getInstruction()).at(0))) {
-		
+	std::regex e("^-?\\d+");
+	if (this->getDrawn() == true && std::regex_match(this->getInstruction(), e)) {
 		return true;
 	}
 	else {
-		
-		return false;
+		return false; 
 	}
 }
+
